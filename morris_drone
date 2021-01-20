@@ -1,0 +1,105 @@
+////Author Name: Julian Morris
+////Date: 01/14/2021
+////Program Name: Morris_Drone
+////Purpose: Simulation using button, drone movement in x, y,z location
+
+
+import java.util.Scanner;
+
+public class Morris_Drone {
+//Drone
+    public static class Drone{
+        public int x;
+        public int y;
+        public int z;
+
+        public Drone(){
+            x = 0;
+            y = 0;
+            z = 0;
+        }
+
+        public Drone(int x, int y, int z){
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
+        //move up method
+        public void moveUp(){
+            z++;
+            System.out.println("Moved up");
+        }
+        public void moveDown(){
+            z--;
+            System.out.println("Moved down");
+        }
+        public void moveForward(){
+            x++;
+            System.out.println("Moved Forward");
+        }
+        public void moveBackward(){
+            x--;
+            System.out.println("Moved Backward");
+        }
+        public void moveLeft(){
+            y++;
+            System.out.println("Moved left");
+        }
+        public void moveRight(){
+            y--;
+            System.out.println("Moved right");
+    }
+    public void displayPosition(){
+        System.out.println("Coordinates:");
+        System.out.print("x = " + x + ", ");
+        System.out.print("y = " + y + ", ");
+        System.out.print("z = " + z);
+        }
+    }
+    public static void main(String[] args) {
+	Drone morris = new Drone(0,0,0);
+
+	morris.displayPosition();
+
+        Scanner scanner = new Scanner(System.in);
+
+        int op;
+
+        while(true){
+            System.out.print("\n1. Move Forward\n2. Move Backward\n3. Move Left\n4. Move Right\n5. Move Up\n6. Move Down\n7." +
+                    " Display coordinates\n8. Exit\nChoose an option: ");
+
+            op = scanner.nextInt();
+
+            switch (op){
+                case 1:
+                    morris.moveForward();
+                    break;
+                case 2:
+                    morris.moveBackward();
+                    break;
+                case 3:
+                    morris.moveLeft();
+                    break;
+                case 4:
+                    morris.moveRight();
+                    break;
+                case 5:
+                    morris.moveUp();
+                    break;
+                case 6:
+                    morris.moveDown();
+                    break;
+                case 7:
+                    morris.displayPosition();
+                    break;
+                case 8:
+                    System.out.println("Now terminating..");
+                    return;
+                default:
+                    System.out.println("Not valid choice, please choose again");
+            }
+        }
+
+    }
+}
